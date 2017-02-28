@@ -27,7 +27,7 @@ class CatagoryController extends Controller
         ]);
 
        $catagory=new Catagory;
-       $catagory->name=$request->catagory_name;
+       $catagory->name=$request->name;
        $catagory->save();
 
 

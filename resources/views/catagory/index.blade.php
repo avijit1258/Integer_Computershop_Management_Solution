@@ -41,13 +41,13 @@
             @if (count($catagories) > 0)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Current catagory
+                        Current Catagory
                     </div>
 
                     <div class="panel-body">
                         <table class="table table-striped catagory-table">
                             <thead>
-                                <th>catagory</th>
+                                <th>Catagory</th>
                                 <th>&nbsp;</th>
                             </thead>
                             <tbody>
