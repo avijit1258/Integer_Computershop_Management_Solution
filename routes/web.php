@@ -24,6 +24,7 @@ Route::get('/sub_catagories', 'SubCatagoryController@index');
 Route::post('/sub_catagories', 'SubCatagoryController@store');
 Route::delete('/sub_catagories/{id}','SubCatagoryController@destroy');
 
+
 Route::post('/catagories', 'CatagoryController@store');
 Route::get('/catagories','CatagoryController@index');
 
