@@ -19,6 +19,7 @@
                         <!-- catagories Name -->
                         <div class="form-group">
                             <label for="catagory-name" class="col-sm-3 control-label">catagory</label>
+
                             <div class="col-sm-6">
                                 <input type="text" name="name" id="catagory-name" class="form-control" value="{{ old('catagory') }}">
                             </div>
