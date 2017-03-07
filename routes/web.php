@@ -28,3 +28,14 @@ Route::delete('/sub_catagories/{id}','SubCatagoryController@destroy');
 Route::post('/catagories', 'CatagoryController@store');
 Route::get('/catagories','CatagoryController@index');
 
+Route::post('/products', 'ProductController@store');
+Route::get('/products','ProductController@index');
+
+Route::post('/brands', 'BrandController@store');
+Route::get('/brands','BrandController@index');
+Route::delete('/brands/{id}','BrandController@destroy');
+
+
+
+
+

@@ -2,16 +2,26 @@
 
 namespace App\Http\Controllers;
 
+
+use App\SubCatagory;
+//use App\Catagory;
+use App\Product;
+
+
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
     public function index(Request $request)
     {
-    	$brands = Brand::all();
+
+    	// $brands = Brand::all();
+        $products = Product::all();
         $sub_catagories = SubCatagory::all();
 
-        return view('product.index', compact('brands', 'sub_catagories'));
+        return view('product.index', compact( 'products','sub_catagories'));
+    	
+
     }
 
     /**
