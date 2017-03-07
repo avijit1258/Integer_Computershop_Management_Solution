@@ -44,6 +44,9 @@ Route::group(['middleware' => 'auth'], function()
 
 
 
+Route::get('/vendors', 'VendorController@index');
+Route::post('/vendors', 'VendorController@store');
+Route::delete('/vendors/{id}','VendorController@destroy');
 
 
 

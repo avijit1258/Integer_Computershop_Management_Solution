@@ -17,8 +17,8 @@ class SubCatagoryController extends Controller
      */
     public function index(Request $request)
     {
-    	$catagories = Catagory::paginate(15);
-        $sub_catagories = SubCatagory::paginate(15);
+    	$catagories = Catagory::all();
+        $sub_catagories = SubCatagory::all();
 
         return view('sub_catagory.index', compact('catagories', 'sub_catagories'));
     }
