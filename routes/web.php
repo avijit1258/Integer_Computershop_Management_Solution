@@ -35,6 +35,9 @@ Route::post('/brands', 'BrandController@store');
 Route::get('/brands','BrandController@index');
 
 
+Route::get('/vendors', 'VendorController@index');
+Route::post('/vendors', 'VendorController@store');
+Route::delete('/vendors/{id}','VendorController@destroy');
 
 
 

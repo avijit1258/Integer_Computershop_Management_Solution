@@ -22,6 +22,8 @@ class CreateLedgersTable extends Migration
             $table->date('date');
             $table->double('sales_info_id');
             $table->timestamps();
+
+        });
     }
 
     /**
@@ -31,6 +33,6 @@ class CreateLedgersTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('ledgers');
     }
 }

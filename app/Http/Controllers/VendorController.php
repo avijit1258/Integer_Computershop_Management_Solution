@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\vendor;
 
 use Illuminate\Http\Request;
 
@@ -16,8 +17,9 @@ class VendorController extends Controller
     public function index(Request $request)
     {
     	
+       $vendors = Vendor::all();
+        return view('vendor.index', compact('vendors'));
        
-        return view('vendor.index');
     }
 
     /**
@@ -31,7 +33,7 @@ class VendorController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'adress' => 'required',
-            'contact_number''required'
+            'contact_number'=>'required'
             
         ]);
 
@@ -39,7 +41,7 @@ class VendorController extends Controller
 
         $vendor->name = $request->name;
        
-        $vendor->adress=$equest->adress;
+        $vendor->adress=$request->adress;
         $vendor->contact_number->request->contact_number;
        $vendor->save();
 
@@ -61,8 +63,8 @@ class VendorController extends Controller
 
         //$task->delete();
 
-        SubCatagory::destroy($vendor_id);
+        $cvendor=vendor::destory($vendor_id);
 
-        return redirect('/vendor');
+        return redirect('/vendors');
     }
 }
