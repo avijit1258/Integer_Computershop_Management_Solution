@@ -20,7 +20,6 @@ class CreateProductTable extends Migration
             $table->string('details');
             $table->string('brand_id')->index();
             $table->integer('sub_catagory_id')->index();
-            $table->time('updated_at');
             $table->string('updated_by');
             $table->timestamps();
         });
