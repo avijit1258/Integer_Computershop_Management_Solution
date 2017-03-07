@@ -26,8 +26,10 @@
                         </div>
 
                         <!-- Catagory Name -->
-                        <label for="input_route"> Catagory </label>
-                        <select name="catagory_id" class="form-control" >
+                        <div class="form-group">
+                            <label for="input_route" class="col-sm-3 control-label"> Catagory </label>
+                            <div class="col-sm-6">
+                                <select name="catagory_id"  >
                             @foreach( $catagories as $catagory)
                             {
 
@@ -35,7 +37,11 @@
                             }
                             @endforeach
                         </select>
-
+        
+                            </div>
+                        
+                        </div>
+                        
 
 
                         <!-- Add SubCatagory Button -->

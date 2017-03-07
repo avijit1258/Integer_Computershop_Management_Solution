@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
 
 
 Route::get('/sub_catagories', 'SubCatagoryController@index');
@@ -33,6 +33,7 @@ Route::get('/products','ProductController@index');
 
 Route::post('/brands', 'BrandController@store');
 Route::get('/brands','BrandController@index');
+Route::delete('/brands/{id}','BrandController@destroy');
 
 
 Route::get('/vendors', 'VendorController@index');
