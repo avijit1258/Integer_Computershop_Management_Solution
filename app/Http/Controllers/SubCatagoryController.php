@@ -46,6 +46,31 @@ class SubCatagoryController extends Controller
         return redirect('/sub_catagories');
     }
 
+    public function edit($id)
+    {
+        $sub_catagory = SubCatagory::find($id);
+        $catagories = Catagory::all();
+
+        return view('sub_catagory.edit', compact('sub_catagory', 'catagories'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $sub_catagory = SubCatagory::find($id);
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'catagory_id' => 'required',
+        ]);
+
+        $sub_catagory->name = $request->name;
+        $sub_catagory->catagory_id = $request->catagory_id;
+
+        $sub_catagory->save();
+        
+        
+        return redirect('/sub_catagories/');
+    }
+
     /**
      * Destroy the given task.
      *
@@ -55,10 +80,7 @@ class SubCatagoryController extends Controller
      */
     public function destroy($sub_catagory_id)
     {
-        //$this->authorize('destroy', $task);
-
-        //$task->delete();
-
+        
         SubCatagory::destroy($sub_catagory_id);
 
         return redirect('/sub_catagories');

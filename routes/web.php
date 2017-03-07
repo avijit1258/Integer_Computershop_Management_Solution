@@ -15,25 +15,33 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index');
 
+Auth::routes();
 
-Route::get('/sub_catagories', 'SubCatagoryController@index');
-Route::post('/sub_catagories', 'SubCatagoryController@store');
-Route::delete('/sub_catagories/{id}','SubCatagoryController@destroy');
+Route::group(['middleware' => 'auth'], function()
+{
+	Route::get('/sub_catagories', 'SubCatagoryController@index');
+	Route::get('/sub_catagories/{id}/edit', 'SubCatagoryController@edit');
+	Route::post('/sub_catagories', 'SubCatagoryController@store');
+	Route::put('/sub_catagories/{id}', 'SubCatagoryController@update');
+	Route::delete('/sub_catagories/{id}','SubCatagoryController@destroy');
 
 
-Route::post('/catagories', 'CatagoryController@store');
-Route::get('/catagories','CatagoryController@index');
+	Route::post('/catagories', 'CatagoryController@store');
+	Route::get('/catagories','CatagoryController@index');
 
-Route::post('/products', 'ProductController@store');
-Route::get('/products','ProductController@index');
+	Route::post('/products', 'ProductController@store');
+	Route::get('/products','ProductController@index');
+	Route::delete('/products/{id}','ProductController@destroy');
 
-Route::post('/brands', 'BrandController@store');
-Route::get('/brands','BrandController@index');
-Route::delete('/brands/{id}','BrandController@destroy');
+	Route::post('/brands', 'BrandController@store');
+	Route::get('/brands','BrandController@index');
+	Route::delete('/brands/{id}','BrandController@destroy');
+	 
+   
+});
+
 
 
 

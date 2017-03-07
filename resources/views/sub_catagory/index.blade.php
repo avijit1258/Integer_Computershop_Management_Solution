@@ -78,6 +78,18 @@
                                         <td class="table-text"><div>{{\App\Catagory::findOrFail($sub_catagory->catagory_id)->name  }}</div></td>
 
 
+                                        <td>
+                                            <form action="{{url('sub_catagories/' . $sub_catagory->id.'/edit')}}" method="GET">
+                                                {{ csrf_field() }}
+<!--                                                 {{ method_field('DELETE') }}
+ -->
+                                                <button type="submit" id="delete-sub_catagory-{{ $sub_catagory->id }}" class="btn btn-danger">
+                                                    <i class="fa fa-btn fa-car"></i>Edit
+                                                </button>
+                                            </form>
+                                        </td>
+
+
                                         <!-- SubCatagory Delete Button -->
                                         <td>
                                             <form action="{{url('sub_catagories/' . $sub_catagory->id)}}" method="POST">

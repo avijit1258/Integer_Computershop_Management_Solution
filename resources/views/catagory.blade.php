@@ -34,9 +34,12 @@
 
     </div>
     <!-- menu items -->
-
-
+        <ul>
+            <li>Hello</li>
+            <li>Rahad</li>
+            <li>Avijit</li>
         </ul>
+
     </div>
 </div>
 </nav>

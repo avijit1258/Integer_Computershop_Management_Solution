@@ -44,6 +44,12 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
+                        <li><a href="{{url('/catagories')}}">Catagories</a></li>
+                        <li><a href="{{url('/sub_catagories')}}">Sub Catagories</a> </li>
+                        <li><a href="{{url('/products')}}"> Products</a> </li>
+                        <li><a href="{{url('/brands')}}"> Brands</a> </li>
+                        <li><a href="{{url('/vendors')}}">Vendors</a> </li>
+
                     </ul>
 
                     <!-- Right Side Of Navbar -->

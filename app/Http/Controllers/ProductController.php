@@ -6,9 +6,10 @@ namespace App\Http\Controllers;
 use App\SubCatagory;
 //use App\Catagory;
 use App\Product;
-
+use App\Brand;
 
 use Illuminate\Http\Request;
+
 
 class ProductController extends Controller
 {
@@ -18,8 +19,9 @@ class ProductController extends Controller
     	// $brands = Brand::all();
         $products = Product::all();
         $sub_catagories = SubCatagory::all();
+        $brands = Brand::all();
 
-        return view('product.index', compact( 'products','sub_catagories'));
+        return view('product.index', compact( 'products','sub_catagories', 'brands'));
     	
 
     }
@@ -47,6 +49,7 @@ class ProductController extends Controller
         $product->sub_catagory_id = $request->sub_catagory_id;
         $product->specification = $request->specification;
         $product->details = $request->details;
+        $product->updated_by = \Auth::user()->id;
 
         $product->save();
 
