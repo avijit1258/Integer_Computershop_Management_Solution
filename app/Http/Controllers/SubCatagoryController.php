@@ -71,6 +71,12 @@ class SubCatagoryController extends Controller
         return redirect('/sub_catagories/');
     }
 
+    public function cat_to_sub($catagory_id)
+    {
+        $data = DB::table('sub_catagories')->where('catagory_id', $catagory_id)->get();
+        return $data;
+    }
+
     /**
      * Destroy the given task.
      *

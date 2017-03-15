@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\catagory;
+use App\Catagory;
 
 use Illuminate\Http\Request;
 
@@ -43,7 +43,7 @@ class CatagoryController extends Controller
      */
     public function destroy($catagory_id)
     {
-    	$catagory=catagory::destory($catagory_id);
+    	$catagory= Catagory::destory($catagory_id);
         
 
         return redirect('/catagories');

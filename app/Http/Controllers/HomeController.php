@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('catagory');
+        return view('catagory.index');
     }
 
     public function purchase()
