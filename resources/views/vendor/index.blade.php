@@ -13,7 +13,7 @@
                     @include('common.errors')
 
                     <!-- New catagories Form -->
-                    <form action="{{ url('vendors') }}" method="POST" class="form-horizontal">
+                    <form action="{{ url('vendor') }}" method="POST" class="form-horizontal">
                         {{ csrf_field() }}
 
                         <!-- catagories Name -->
@@ -37,7 +37,7 @@
                             <label for="contact_number" class="col-sm-3 control-label">contact_No</label>
 
                             <div class="col-sm-6">
-                                <input type="text" name="contact" placeholder="contact_info" id="contact_number" class="form-control" value="{{ old('vendor') }}">
+                                <input type="text" name="contact_number" placeholder="contact_info" id="contact_number" class="form-control" value="{{ old('vendor') }}">
                             </div>
                         </div>
 
@@ -73,7 +73,7 @@
 
                                         <!-- catagories Delete Button -->
                                         <td>
-                                           <form action="{{url('vendor/' . $vendor->id)}}" method="POST">
+                                           <form action="{{url('vendors/' . $vendor->id)}}" method="POST">
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
 
