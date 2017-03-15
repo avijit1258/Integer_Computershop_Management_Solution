@@ -20,7 +20,7 @@ class CreateSellTable extends Migration
             $table->double('unit_sell_price');
             $table->double('total_sell_price');
             $table->date('date');
-
+            $table->integer('voucher_id')->unique();
             $table->timestamps();
         });
     }

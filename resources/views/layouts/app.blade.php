@@ -15,7 +15,7 @@
 
     <!-- Scripts -->
     <script>
-        window.Laravel = {!! json_encode([
+        window.Integer = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
@@ -49,6 +49,7 @@
                         <li><a href="{{url('/products')}}"> Products</a> </li>
                         <li><a href="{{url('/brands')}}"> Brands</a> </li>
                         <li><a href="{{url('/vendors')}}">Vendors</a> </li>
+                        <li><a href="{{url('/sells')}}">Sells</a></li>
 
                     </ul>
 

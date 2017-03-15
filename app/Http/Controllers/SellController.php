@@ -3,14 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Catagory;
+use App\Product;
 
 class SellController extends Controller
 {
     public function index(Request $request)
     {
+
     	$products = Product::all();
-        
-        return view('sell.index', compact('products'));
+        $catagories = Catagory::all();
+
+        return view('sell.index', compact('products', 'catagories'));
     }
 
     /**

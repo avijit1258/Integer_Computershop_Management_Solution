@@ -30,6 +30,8 @@ Route::group(['middleware' => 'auth'], function()
 
 	Route::post('/catagories', 'CatagoryController@store');
 	Route::get('/catagories','CatagoryController@index');
+	Route::delete('/catagories/{id}','CatagoryController@destroy');
+
 
 	Route::post('/products', 'ProductController@store');
 	Route::get('/products','ProductController@index');
@@ -38,8 +40,11 @@ Route::group(['middleware' => 'auth'], function()
 	Route::post('/brands', 'BrandController@store');
 	Route::get('/brands','BrandController@index');
 	Route::delete('/brands/{id}','BrandController@destroy');
-	 
-   
+
+	Route::get('/sells', 'SellController@index');
+	
+	Route::get('/subcatagories_of_catagory/{id}', 'SubCatagoryController@cat_to_sub'); 
+    
 });
 
 
