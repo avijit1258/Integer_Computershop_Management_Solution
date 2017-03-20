@@ -57,7 +57,8 @@
 
                                         <!-- catagories Delete Button -->
                                         <td>
-                                            <form action="{{url('catagories/' . $catagory->id)}}" method="POST">
+                                           <form action="{{url('catagories/'. $catagory->id)}}" method="POST">
+
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
 

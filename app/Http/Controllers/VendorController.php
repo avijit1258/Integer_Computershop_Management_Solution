@@ -42,7 +42,7 @@ class VendorController extends Controller
         $vendor->name = $request->name;
        
         $vendor->adress=$request->adress;
-        $vendor->contact_number->request->contact_number;
+        $vendor->contact_number=$request->contact_number;
        $vendor->save();
 
         
@@ -63,7 +63,7 @@ class VendorController extends Controller
 
         //$task->delete();
 
-        $cvendor=vendor::destory($vendor_id);
+        Vendor::destory($vendor_id);
 
         return redirect('/vendors');
     }
