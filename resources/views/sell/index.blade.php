@@ -18,7 +18,7 @@
 					<div id="product_select">
 					<label>1</label>
 					<label>Catagory</label>
-					<select id="catagory_select" name="catagory_id">
+					<select id="catagory_select1" name="catagory_id">
 						@foreach( $catagories as $catagory)
                                 {
                                 <option value={{$catagory->id}} > {{$catagory->name}}  </option> 
@@ -94,7 +94,7 @@
 
 
 </div>
-
+<script src="{{ asset('js/jquery-3.1.1.min.js') }}"></script>
 <script type="text/javascript">
 	var serial = 2;
 	function AddMoreProduct() {
@@ -102,23 +102,29 @@
 
 		$('#product_select_list').append("<br><label>"+serial+"</label><br>"+selectProduct);
 		serial = serial + 1;
-	}
-
-		
+	}		
 	
-</script>
-@endsection
-
-<!-- $('select[name="catagory_id"]').change(function()
+	$('#catagory_select1').change(function()
 		{
-			$.get('/subcatagories_of_catagory/'+$('#catagory_select').val(), function(data)
+			var catagory = $(this).val();
+			alert('hello i am on');
+			$.ajax(
 			{
+				type : 'post',
+				url : '/subcatagories_of_catagory/'+catagory,
+				sucess:function(data)
+				{
 				var Data = " ";
 
 				for(var i = 1; i <= data.length ; i++)
 				{
 					Data += "<option name='sub_catagory_id' value='"+data[i].id+"'>+'"data[i].name"'+</option>";
 				}
-				$('#sub_catagory_select').html(Data);
+				$('#sub_catagory_select').html(data);	
+				}
+				
 			});
-		}); -->
+	});
+</script>
+@endsection
+
