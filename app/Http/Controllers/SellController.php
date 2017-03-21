@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Catagory;
 use App\Product;
+use App\SubCatagory;
+use App\Sell;
+
+use Carbon\Carbon;
 
 class SellController extends Controller
 {
@@ -13,8 +17,9 @@ class SellController extends Controller
 
     	$products = Product::all();
         $catagories = Catagory::all();
+        $sub_catagories = SubCatagory::all();
 
-        return view('sell.index', compact('products', 'catagories'));
+        return view('sell.index', compact('products', 'catagories', 'sub_catagories'));
     }
 
     /**
@@ -25,23 +30,25 @@ class SellController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'date' => 'required',
-            'unit_sell_price' => 'required',
-            'total_sell_price' => 'required',
-            'quantity' => 'required',
-            'product_id' => 'required',
-        ]);
+        
 
         $sell = new Sell;
+        //var_dump($request);
+        for($i=0 ; $i < count($request->product_id) ; $i++){
 
-        $sell->date = $request->date;
-        $sell->quantity = $request->quantity;
-        $sell->unit_sell_price = $request->unit_sell_price;
-        $sell->total_sell_price = $request->total_sell_price;
-        $sell->product_id = $request->product_id;
+            $sell->date = Carbon::now();
+            $sell->quantity = $request->quantity[$i];
+            $sell->unit_sell_price = $request->unit_sell_price[$i];
+            $sell->total_sell_price = $request->quantity[$i]*$request->unit_sell_price[$i];
+            $sell->product_id = $request->product_id[$i];
+            //$sell->customer_name = $request->customer_name;
+            $sell->contact_no = $request->contact_no;
+            //$sell->address = $request->address;
+            $sell->voucher_id = 3;
+            $sell->save();    
+        }
 
-        $sell->save();
+        
 
         return redirect('/sells');
     }
