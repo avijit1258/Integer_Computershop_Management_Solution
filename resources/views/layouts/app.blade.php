@@ -50,6 +50,7 @@
                         <li><a href="{{url('/brands')}}"> Brands</a> </li>
                         <li><a href="{{url('/vendors')}}">Vendors</a> </li>
                         <li><a href="{{url('/sells')}}">Sells</a></li>
+                        <li><a href="{{url('/purchases')}}">Purchases</a></li>
 
                     </ul>
 

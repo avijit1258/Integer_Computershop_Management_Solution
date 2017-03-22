@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Vendor;
+use App\Product;
 
 class PurchaseController extends Controller
 {

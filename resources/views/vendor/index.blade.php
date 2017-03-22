@@ -13,7 +13,7 @@
                     @include('common.errors')
 
                     <!-- New catagories Form -->
-                    <form action="{{ url('vendor') }}" method="POST" class="form-horizontal">
+                    <form action="{{ url('vendors') }}" method="POST" class="form-horizontal">
                         {{ csrf_field() }}
 
                         <!-- catagories Name -->

@@ -8,7 +8,7 @@
 		<div class="panel panel-default">
 			
 			<div class="panel-heading">
-				sell Product
+				purchase Product
 			</div>
 
 			<div class="panel-body">
@@ -17,44 +17,39 @@
 					<a href="javascript:;" onclick="AddMoreProduct()">ADD</a>
 					<div id="product_select">
 					<label>1</label>
-					<label>Catagory</label>
-					<select id="catagory_select" name="catagory_id">
-						@foreach( $catagories as $catagory)
+					<label>products</label>
+					<select id="products_select" name="products_id">
+						@foreach( $products as $product)
                                 {
-                                <option value={{$catagory->id}} > {{$catagory->name}}  </option> 
+                                <option value={{$product->id}} > {{$product->model}}  </option> 
                                 }
                                 @endforeach
 					</select>
-
-					<label>Sub Catagory</label>
-					<select id="sub_catagory_select" name="sub_catagory_id">
-						
+					<label>Vendor</label>
+					<select id="vendors_select" name="vendors_id">
+						@foreach( $vendors as $vendor)
+                                {
+                                <option value={{$vendor->id}} > {{$vendor->name}}  </option> 
+                                }
+                                @endforeach
 					</select>
+					
 
-					<label>Product</label>
-					<select id="product_select" name="product_id[]">
-						
-					</select>
 
 					<label>Quantity</label>
 					<input type="double" name="quantity[]" placeholder="Quantity">
 					<br>
 					<label>Unit Sale Price</label>
 					<input type="double" name="unit_sale_price[]" placeholder="Unit Sale Price">
+					<br>
+					<label>Unit Purchase Price</label>
+					<input type="double" name="unit_purchase_price[]" placeholder="Unit purchase Price">
 
 					</div>
 				</div>
 
 				</div>
-				<div id="customer_info">
-					<label>Customer Name</label>
-					<input type="text" name="customer_name" placeholder="Customer Name">
-					<label>Contact Number</label>
-					<input type="text" name="contant_no" placeholder="Contact Number">
-					<br>
-					<label>Address</label>
-					<input type="text" name="address" placeholder="Address">
-				</div>
+				
 				<button type="submit" class = "btn btn-default"> <i class="fa fa-btn fa-plus"></i>Save</button>
 
 			</form>
@@ -67,30 +62,33 @@
 
 <div id="product_sell_load_area" style="display: none">
 					<br>
-					<label>Catagory</label>
-					<select id="catagory_select" name="catagory_id">
-						@foreach( $catagories as $catagory)
+					<label>Products</label>
+					<select id="product_select" name="product_id">
+						@foreach( $products as $product)
                                 {
-                                <option value={{$catagory->id}} > {{$catagory->name}}  </option> 
+                                <option value={{$product->id}} > {{$product->model}}  </option> 
+                                }
+                                @endforeach
+                     </select>
+                     <label>Vendors</label>
+
+					<select id="vendors_select" name="vendors_id">
+						@foreach( $vendors as $vendor)
+                                {
+                                <option value={{$vendor->id}} > {{$vendor->name}}  </option> 
                                 }
                                 @endforeach
 					</select>
-
-					<label>Sub Catagory</label>
-					<select id="sub_catagory_select" name="sub_catagory_id">
-						
-					</select>
-
-					<label>Product</label>
-					<select id="product_select" name="product_id[]">
-						
-					</select>
-
+					
 					<label>Quantity</label>
 					<input type="double" name="quantity[]" placeholder="Quantity">
 					<br>
 					<label>Unit Sale Price</label>
 					<input type="double" name="unit_sale_price[]" placeholder="Unit Sale Price">
+
+					<br>
+					<label>Unit Purchase Price</label>
+					<input type="double" name="unit_purchase_price[]" placeholder="Unit purchase Price">
 
 
 </div>
@@ -98,9 +96,9 @@
 <script type="text/javascript">
 	var serial = 2;
 	function AddMoreProduct() {
-		var selectProduct = $('#product_sell_load_area').html();
+		var purchaseProduct = $('#product_sell_load_area').html();
 
-		$('#product_select_list').append("<br><label>"+serial+"</label><br>"+selectProduct);
+		$('#product_select_list').append("<br><label>"+serial+"</label><br>"+purchaseProduct);
 		serial = serial + 1;
 	}
 
@@ -109,7 +107,7 @@
 
 <!-- $('select[name="catagory_id"]').change(function()
 		{
-			$.get('/subcatagories_of_catagory/'+$('#catagory_select').val(), function(data)
+			$.get('/subproducts_of_catagory/'+$('#catagory_select').val(), function(data)
 			{
 				var Data = " ";
 

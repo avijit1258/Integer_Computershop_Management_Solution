@@ -42,6 +42,8 @@ Route::group(['middleware' => 'auth'], function()
 	Route::delete('/brands/{id}','BrandController@destroy');
 
 	Route::get('/sells', 'SellController@index');
+
+	Route::get('/purchases', 'PurchaseController@index');
 	
 	Route::get('/subcatagories_of_catagory/{id}', 'SubCatagoryController@cat_to_sub'); 
     
