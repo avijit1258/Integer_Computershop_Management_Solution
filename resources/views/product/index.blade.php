@@ -26,7 +26,7 @@
                         </div>
                          <!-- Brand -->
                          <div class="form-group">
-                            <label for="input_route" class="col-sm-3 control-label"> Catagory </label>
+                            <label for="input_route" class="col-sm-3 control-label"> Brand </label>
                             <div class="col-sm-6">
                                 <select name="brand_id"  >
                                 @foreach( $brands as $brand)
