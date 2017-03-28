@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Vendor;
 use App\Product;
+use Carbon\Carbon;
 
 class PurchaseController extends Controller
 {
@@ -24,27 +25,17 @@ class PurchaseController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'warrenty' => 'required',
-            'vendor_id' => 'required',
-            'product_id' => 'required',
-            'sale_price' => 'required',
-            'purchase_price' => 'required',
-            'date' => 'required',
-            'quantity' => 'quantity' ,
-        ]);
+        
 
         $purchase = new Purchase;
 
-        $purchase->warrenty = $request->model ;
-        $purchase->date = $request->date ;
-        $purchase->product_id = $request->product_id ;
-        $purchase->vendor_id = $request->vendor_id ;
-        $purchase->quantity = $request->quantity ;
-        $purchase->sale_price = $request->sale_price ;
-        $purchase->purchase_price = $request->purchase_price ;
-
-
+        $purchase->warrenty = 4 ;
+        $purchase->date = = Carbon::now();;
+        $purchase->product_id = $request->product_id[$i] ;
+        $purchase->vendor_id = $request->vendor_id[$i] ;
+        $purchase->quantity = $request->quantity[$i] ;
+        $purchase->sale_price = $request->sale_price[$i] ;
+        $purchase->purchase_price = $request->purchase_price[$i] ;
 
         $purchase->save();
 

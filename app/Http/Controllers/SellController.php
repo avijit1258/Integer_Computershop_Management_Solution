@@ -39,7 +39,7 @@ class SellController extends Controller
             $sell->date = Carbon::now();
             $sell->quantity = $request->quantity[$i];
             $sell->unit_sell_price = $request->unit_sell_price[$i];
-            $sell->total_sell_price = $request->quantity[$i]*$request->unit_sell_price[$i];
+            $sell->total_sell_price = $request->quantity[$i];
             $sell->product_id = $request->product_id[$i];
             //$sell->customer_name = $request->customer_name;
             $sell->contact_no = $request->contact_no;
