@@ -22,7 +22,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-inverse navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
 
@@ -44,13 +44,40 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
-                        <li><a href="{{url('/catagories')}}">Catagories</a></li>
-                        <li><a href="{{url('/sub_catagories')}}">Sub Catagories</a> </li>
-                        <li><a href="{{url('/products')}}"> Products</a> </li>
-                        <li><a href="{{url('/brands')}}"> Brands</a> </li>
-                        <li><a href="{{url('/vendors')}}">Vendors</a> </li>
-                        <li><a href="{{url('/sells')}}">Sells</a></li>
-                        <li><a href="{{url('/purchases')}}">Purchases</a></li>
+                        <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    ADD NEW<span class="caret"></span>
+                                </a>
+                        
+                            <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <button class="btn btn-default navbar-btn"><a href="{{url('/catagories')}}">Catagories</a></button>
+                        </li>
+                        <li>
+                        <button class="btn btn-default navbar-btn"><a href="{{url('/sub_catagories')}}">Sub Catagories</a></button>
+                        </li>
+                        <li>
+                            <button class="btn btn-default navbar-btn"><a href="{{url('/products')}}">Products</a></button>
+                         </li>
+                        <li>
+                            <button class="btn btn-default navbar-btn"><a href="{{url('/brands')}}">Brands</a></button>
+                         </li>
+                        <li>
+                            <button class="btn btn-default navbar-btn"><a href="{{url('/vendors')}}">Vendors</a></button>
+
+                        </li>                                
+                            </ul>
+                        </li>
+                        
+                        <li>
+                        <button class="btn btn-default navbar-btn"><a href="{{url('/sells')}}">Invoice</a></button>
+                        </li>
+                        <li>
+                            <button class="btn btn-default navbar-btn"><a href="{{url('/purchases')}}">Purchase</a></button>
+                        </li>
+                        
+                        <li>
+
 
                     </ul>
 

@@ -19,38 +19,46 @@ Route::get('/home', 'HomeController@index');
 
 Auth::routes();
 
+Route::get('/users', 'Auth\LoginController@addUser');
+
 Route::group(['middleware' => 'auth'], function()
 {
-	Route::get('/sub_catagories', 'SubCatagoryController@index');
-	Route::get('/sub_catagories/{id}/edit', 'SubCatagoryController@edit');
-	Route::post('/sub_catagories', 'SubCatagoryController@store');
-	Route::put('/sub_catagories/{id}', 'SubCatagoryController@update');
-	Route::delete('/sub_catagories/{id}','SubCatagoryController@destroy');
-
+	
 
 	Route::post('/products', 'ProductController@store');
 	Route::get('/products','ProductController@index');
 	Route::delete('/products/{id}','ProductController@destroy');
 
+	Route::post('/catagories', 'CatagoryController@store');
+	Route::get('/catagories','CatagoryController@index');
+	Route::delete('/catagories/{id}','CatagoryController@destroy');
+
+	Route::get('/sells', 'SellController@index');
+	Route::post('/sells', 'SellController@store');
+	Route::delete('/sells/{id}', 'SellController@store');
+
 	Route::post('/brands', 'BrandController@store');
 	Route::get('/brands','BrandController@index');
 	Route::delete('/brands/{id}','BrandController@destroy');
-
+	
 	Route::get('/vendors', 'VendorController@index');
 	Route::post('/vendors', 'VendorController@store');
 	Route::delete('/vendors/{id}','VendorController@destroy');
 
-	Route::get('/sells', 'SellController@index');
+	Route::get('/sub_catagories', 'SubCatagoryController@index');
+	Route::get('/sub_catagories/{id}/edit', 'SubCatagoryController@edit');
+	Route::post('/sub_catagories', 'SubCatagoryController@store');
+	Route::put('/sub_catagories/{id}', 'SubCatagoryController@update');
+	Route::delete('/sub_catagories/{id}','SubCatagoryController@destroy');
+		
 
+	
 
 	Route::get('/purchases', 'PurchaseController@index');
-	Route::post('/sells', 'SellController@store');
-	Route::delete('/sells/{id}', 'SellController@store');
 
 	Route::get('/subcatagories_of_catagory/{id}', 'SubCatagoryController@cat_to_sub'); 
     
 });
 
-Route::post('/catagories', 'CatagoryController@store');
-	Route::get('/catagories','CatagoryController@index');
-	Route::delete('/catagories/{id}','CatagoryController@destroy');
+
+

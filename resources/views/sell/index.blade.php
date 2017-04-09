@@ -5,7 +5,7 @@
 <div class="container">
 	<div class="col-sm-offset-2 col-sm-8">
 		
-		<div class="panel panel-default">
+		<div class="panel panel-primary">
 			<form action="{{ url('/sells') }}" method="post" class="form-horizontal">
 			<div class="panel-heading">
 				sell Product
@@ -66,6 +66,9 @@
 				<!-- <button type="submit" class = "btn btn-default"> <i class="fa fa-btn fa-plus"></i>Save</button>
 			-->
 			<input type="submit" name="submit" value="Add">
+
+			<button onclick="myFunction()">Print Invoice</button>
+
 		</form>
 
 	</div>
@@ -124,6 +127,11 @@
 	}		
 	
 	
+</script>
+<script>
+function myFunction() {
+    window.print();
+}
 </script>
 @endsection
 
