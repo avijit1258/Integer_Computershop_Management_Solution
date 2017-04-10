@@ -6,7 +6,7 @@
 	<div class="col-sm-offset-2 col-sm-8">
 		
 		<div class="panel panel-primary">
-			<form action="{{ url('/sells') }}" method="post" class="form-horizontal">
+			<form action="{{ url('/sells')}}" method="post" class="form-horizontal">
 			<div class="panel-heading">
 				sell Product
 			</div>
@@ -53,8 +53,7 @@
 			</div>
 		</div>
 
-	</div>
-	<div id="customer_info">
+		<div id="customer_info">
 		<label>Customer Name</label>
 		<input type="text" name="customer_name" placeholder="Customer Name">
 		<label>Contact Number</label>
@@ -63,6 +62,9 @@
 		<label>Address</label>
 		<input type="text" name="address" placeholder="Address">
 	</div>
+
+	</div>
+	
 				<!-- <button type="submit" class = "btn btn-default"> <i class="fa fa-btn fa-plus"></i>Save</button>
 			-->
 			<input type="submit" name="submit" value="Add">
@@ -128,10 +130,6 @@
 	
 	
 </script>
-<script>
-function myFunction() {
-    window.print();
-}
-</script>
+
 @endsection
 

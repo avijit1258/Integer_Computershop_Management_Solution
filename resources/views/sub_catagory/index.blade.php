@@ -104,7 +104,7 @@
 @endforeach
 </tbody>
 </table>
-<button onclick="myFunction()">Print this page</button>
+<button onclick="myFunction()">Print Invoice</button>
 </div>
 </div>
 @endif

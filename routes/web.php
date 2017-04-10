@@ -36,6 +36,8 @@ Route::group(['middleware' => 'auth'], function()
 	Route::get('/sells', 'SellController@index');
 	Route::post('/sells', 'SellController@store');
 	Route::delete('/sells/{id}', 'SellController@store');
+	Route::get('/sells/invoice', 'SellController@invoice');
+
 
 	Route::post('/brands', 'BrandController@store');
 	Route::get('/brands','BrandController@index');
@@ -52,10 +54,8 @@ Route::group(['middleware' => 'auth'], function()
 	Route::delete('/sub_catagories/{id}','SubCatagoryController@destroy');
 		
 
-	
-
 	Route::get('/purchases', 'PurchaseController@index');
-
+	Route::post('/purchases', 'PurchaseController@store');
 	Route::get('/subcatagories_of_catagory/{id}', 'SubCatagoryController@cat_to_sub'); 
     
 });

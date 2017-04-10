@@ -12,7 +12,7 @@
 			</div>
 
 			<div class="panel-body">
-			<form>
+			<form action="{{ url('/purchases')}}" method="post">
 				<div id="product_select_list">
 					<a href="javascript:;" onclick="AddMoreProduct()">ADD</a>
 					<div id="product_select">

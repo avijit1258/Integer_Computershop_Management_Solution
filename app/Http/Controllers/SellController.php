@@ -33,24 +33,37 @@ class SellController extends Controller
         
 
         $sell = new Sell;
+
+        $total = 0;
+        //my_sql_insert_id();
         //var_dump($request);
+        $request->session()->put('quantity', $request->quantity);
+        $request->session()->put('unit_sell_price', $request->unit_sell_price);
+        
+        $request->session()->put('product_id', $request->product_id);
+
+        $request->session()->put('contact_no', $request->contact_no);
+
+        $request->session()->put('customer_name', $request->customer_name);
+
+        $voucher_id = mt_rand();
+        $request->session()->put('voucher_id', $voucher_id);
         for($i=0 ; $i < count($request->product_id) ; $i++){
 
             $sell->date = Carbon::now();
-            $sell->quantity = $request->quantity[$i];
             $sell->unit_sell_price = $request->unit_sell_price[$i];
-            $sell->total_sell_price = $request->quantity[$i];
+            $sell->quantity = $request->quantity[$i];
+            $sell->total_sell_price = $request->quantity[$i] * $request->unit_sell_price[$i];
             $sell->product_id = $request->product_id[$i];
-            //$sell->customer_name = $request->customer_name;
             $sell->contact_no = $request->contact_no;
-            //$sell->address = $request->address;
-            $sell->voucher_id = 3;
-            $sell->save();    
+            $sell->voucher_id = $voucher_id;
+            $sell->save(); 
+            $total +=  $sell->total_sell_price;   
         }
 
-        
+        $request->session()->put('total', $total);
 
-        return redirect('/sells');
+        return redirect('/sells/invoice');
     }
 
     /**
@@ -69,5 +82,11 @@ class SellController extends Controller
         Sell::destroy($id);
 
         return redirect('/sells');
+    }
+
+    public function invoice()
+    {
+
+        return view('sell.invoice');
     }
 }
