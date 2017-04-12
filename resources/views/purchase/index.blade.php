@@ -12,13 +12,14 @@
 			</div>
 
 			<div class="panel-body">
-			<form action="{{ url('/purchases')}}" method="post">
+			<form action="{{url('/purchases')}}" method="post">
 				<div id="product_select_list">
 					<a href="javascript:;" onclick="AddMoreProduct()">ADD</a>
 					<div id="product_select">
 					<label>1</label>
 					<label>products</label>
-					<select id="products_select" name="products_id">
+					{{ csrf_field() }}
+					<select id="products_select" name="product_id[]">
 						@foreach( $products as $product)
                                 {
                                 <option value={{$product->id}} > {{$product->model}}  </option> 
@@ -26,7 +27,7 @@
                                 @endforeach
 					</select>
 					<label>Vendor</label>
-					<select id="vendors_select" name="vendors_id">
+					<select id="vendors_select" name="vendor_id[]">
 						@foreach( $vendors as $vendor)
                                 {
                                 <option value={{$vendor->id}} > {{$vendor->name}}  </option> 
@@ -47,12 +48,12 @@
 
 					</div>
 				</div>
-
-				</div>
-				
-				<button type="submit" class = "btn btn-default"> <i class="fa fa-btn fa-plus"></i>Save</button>
+				<button type="submit" class = "btn btn-success"> <i class="fa fa-btn fa-plus"></i>Save</button>
 
 			</form>
+				</div>
+				
+				
 				
 			</div>
 
@@ -61,7 +62,11 @@
 </div>
 
 <div id="product_sell_load_area" style="display: none">
+<div>
 					<br>
+					<button type='button' class='close' onclick='$(this).parent().remove();'>×</button>
+	<label>Catagory</label>
+					
 					<label>Products</label>
 					<select id="product_select" name="product_id">
 						@foreach( $products as $product)
@@ -90,7 +95,7 @@
 					<label>Unit Purchase Price</label>
 					<input type="double" name="unit_purchase_price[]" placeholder="Unit purchase Price">
 
-
+		</div>
 </div>
 
 <script type="text/javascript">

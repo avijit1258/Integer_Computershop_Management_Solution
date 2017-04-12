@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Vendor;
 use App\Product;
 use Carbon\Carbon;
+use App\Purchase;
 
 class PurchaseController extends Controller
 {
@@ -30,18 +31,21 @@ class PurchaseController extends Controller
         $purchase = new Purchase;
 
         $purchase->warrenty = 4 ;
-        for($i = 0; i < count($request->product_id); $i++)
+
+        //dd(count($request->product_id));
+        for($i = 0; $i < count($request->product_id); $i++)
         {
          $purchase->date  = Carbon::now();
-         $purchase->product_id = $request->product_id[$i] ;
-         $purchase->vendor_id = $request->vendor_id[$i] ;
-         $purchase->quantity = $request->quantity[$i] ;
-         $purchase->sale_price = $request->sale_price[$i] ;
-         $purchase->purchase_price = $request->purchase_price[$i] ;
+         $purchase->product_id = $request->product_id[$i];
+         $purchase->vendor_id = $request->vendor_id[$i];
+         $purchase->quantity = $request->quantity[$i];
+         $purchase->sale_price = $request->unit_sale_price[$i];
+         $purchase->purchase_price = $request->unit_purchase_price[$i] ;
+         $purchase->save();
          
-     }
+        }
      
-     $purchase->save();
+     
 
      return redirect('/purchases');
  }

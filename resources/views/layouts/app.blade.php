@@ -11,6 +11,7 @@
     <title>{{ config('app.name', 'Integer') }}</title>
 
     <!-- Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
     <!-- Scripts -->
@@ -19,6 +20,12 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+
+    <style >
+        html, body{
+            background-color :#686205;
+        }
+    </style>
 </head>
 <body>
     <div id="app">

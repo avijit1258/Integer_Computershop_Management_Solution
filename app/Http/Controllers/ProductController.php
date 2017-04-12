@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\SubCatagory;
-//use App\Catagory;
+use App\Catagory;
 use App\Product;
 use App\Brand;
 
@@ -23,7 +23,6 @@ class ProductController extends Controller
 
         return view('product.index', compact( 'products','sub_catagories', 'brands'));
     	
-
     }
 
     /**
@@ -49,7 +48,7 @@ class ProductController extends Controller
         $product->sub_catagory_id = $request->sub_catagory_id;
         $product->specification = $request->specification;
         $product->details = $request->details;
-        $product->updated_by = \Auth::user()->id;
+        $product->updated_by = 1;
 
         $product->save();
 

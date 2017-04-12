@@ -21,9 +21,7 @@ Auth::routes();
 
 Route::get('/users', 'Auth\LoginController@addUser');
 
-Route::group(['middleware' => 'auth'], function()
-{
-	
+
 
 	Route::post('/products', 'ProductController@store');
 	Route::get('/products','ProductController@index');
@@ -58,7 +56,7 @@ Route::group(['middleware' => 'auth'], function()
 	Route::post('/purchases', 'PurchaseController@store');
 	Route::get('/subcatagories_of_catagory/{id}', 'SubCatagoryController@cat_to_sub'); 
     
-});
+
 
 
 

@@ -15,15 +15,14 @@ class BrandsTableSeeder extends Seeder
          DB::table('brands')->delete();
         $brands = [
         ['name' => 'Asus'],
-        ['name' => 'D_Link'],
-        ['name' => 'Linksys'],
-        ['name' => 'Miicronet'],
-        ['name' => 'Mikrotik'],
-
-        ['name' => 'Brother'],
+        ['name' => 'HP'],
+        ['name' => 'Microsoft'],
+        ['name' => 'Adobe'],
+        ['name' => 'Fujitsu'],
+        ['name' => 'Dell'],
         ['name' => 'Canon'],
         ['name' => 'Epson'],
-        ['name' => 'Rongta'],
+        ['name' => 'Apple'],
         ['name' => 'Samsung'],
         
         ];

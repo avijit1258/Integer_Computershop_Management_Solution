@@ -17,6 +17,7 @@
                     <!-- New catagories Form -->
                     <form action="{{ url('catagories') }}" method="POST" class="form-horizontal">
                         {{ csrf_field() }}
+                        
 
                         <!-- catagories Name -->
                         <div class="form-group">

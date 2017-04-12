@@ -7,6 +7,7 @@ use App\Catagory;
 use App\Product;
 use App\SubCatagory;
 use App\Sell;
+use App\Purchase;
 
 use Carbon\Carbon;
 
@@ -33,6 +34,7 @@ class SellController extends Controller
         
 
         $sell = new Sell;
+        $purchase = new Purchase;
 
         $total = 0;
         //my_sql_insert_id();
@@ -49,15 +51,19 @@ class SellController extends Controller
         $voucher_id = mt_rand();
         $request->session()->put('voucher_id', $voucher_id);
         for($i=0 ; $i < count($request->product_id) ; $i++){
-
+            $purchase = Purchase::find($request->product_id[$i]);
             $sell->date = Carbon::now();
             $sell->unit_sell_price = $request->unit_sell_price[$i];
             $sell->quantity = $request->quantity[$i];
-            $sell->total_sell_price = $request->quantity[$i] * $request->unit_sell_price[$i];
+            $sell->total_sell_price = $request->quantity[$i]
+             * $request->unit_sell_price[$i];
+            //transaction
             $sell->product_id = $request->product_id[$i];
+            $purchase->quantity -= $request->quantity[$i];
             $sell->contact_no = $request->contact_no;
             $sell->voucher_id = $voucher_id;
             $sell->save(); 
+            $purchase->save();
             $total +=  $sell->total_sell_price;   
         }
 

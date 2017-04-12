@@ -25,7 +25,7 @@
     <!-- Styles -->
     <style>
         html, body {
-            background-color: #fff;
+            background-color: #021968;
             color: #636b6f;
             font-family: 'Raleway', sans-serif;
             font-weight: 100;
@@ -76,12 +76,16 @@
         }
     </style>
 </head>
-<body>
+<body >
+
+
 
     <marquee bgcolor="#66CD00" scrollamount="08" >
         <h2>
+        <font color=" #180af2 ">
             WELCOME &nbsp TO &nbsp INTEGER &nbsp COMPUTER &nbsp SOLUTIONS &nbsp LTD &nbsp , KHULNA &nbsp , BANGLADESH &nbsp
             Contact &nbsp : &nbsp 0155551234
+            </font>
         </h2>
     </marquee>
     <div class="flex-center position-ref full-height">
@@ -90,7 +94,11 @@
             @if (Auth::check())
             <a href="{{ url('/catagories') }}">Store</a>
             @else
-            <a href="{{ url('/login') }}">Enter</a>
+            <a href="{{ url('/login') }}">
+            <font color="white" size="16px">
+               Enter 
+            </font>
+            </a>
             
             @endif
         </div>
@@ -124,7 +132,7 @@
                   <img src="image/hard_drive.jpg" alt="Flower">
               </div>
               <div class="item">
-                  <img src="image/product_catagories.jpg" alt="Flower">
+                  <img src="image/projector.jpg" alt="Flower">
               </div>
 
           </div>

@@ -13,12 +13,15 @@ class CatagoriesTableSeeder extends Seeder
     {
         DB::table('catagories')->delete();
         $catagories = [
-        ['name' => 'Network'],
-        ['name' => 'INK Printer'],
+        ['name' => 'Notebook'],
         ['name' => 'Dekstop'],
-        ['name' => 'Android'],
-        ['name' => 'Components'],
-
+        ['name' => 'Phone & Tablet'],
+        ['name' => 'Printer, Copier & Scanner'],
+        ['name' => 'Projector'],
+        ['name' => 'Peripherals'],
+        ['name' => 'Software'],
+        ['name' => 'Networking'],
+        ['name' => 'Enterprise Solution'],
 
         ];
 
