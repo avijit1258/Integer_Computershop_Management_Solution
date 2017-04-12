@@ -10,10 +10,10 @@
 			<div class="panel-heading">
 				Sell Product
 			</div>
-			{{csrf_field()}}
+			
 			<form action="{{ url('/sells')}}" method="post" class="form-horizontal">
 			<div class="panel-body">
-
+					
 					<div id="product_select_list">
 						<a href="javascript:;" onclick="AddMoreProduct()">ADD</a>
 						<div id="product_select">

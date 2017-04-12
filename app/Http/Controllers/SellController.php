@@ -8,6 +8,7 @@ use App\Product;
 use App\SubCatagory;
 use App\Sell;
 use App\Purchase;
+use App\Customer;
 
 use Carbon\Carbon;
 
@@ -35,6 +36,7 @@ class SellController extends Controller
 
         $sell = new Sell;
         $purchase = new Purchase;
+        $customer = new Customer;
 
         $total = 0;
         //my_sql_insert_id();
@@ -50,6 +52,9 @@ class SellController extends Controller
 
         $voucher_id = mt_rand();
         $request->session()->put('voucher_id', $voucher_id);
+        $customer->name = $request->customer_name;
+        $customer->contact_no = $request->contact_no;
+        $customer->save();
         for($i=0 ; $i < count($request->product_id) ; $i++){
             $purchase = Purchase::find($request->product_id[$i]);
             $sell->date = Carbon::now();
@@ -94,5 +99,12 @@ class SellController extends Controller
     {
 
         return view('sell.invoice');
+    }
+
+    public function ledger()
+    {
+        $sells = Sell::paginate(15);
+
+        return view('sell.ledger', compact('sells'));
     }
 }

@@ -49,6 +49,7 @@
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
+                    @if(Auth::user())
                     <ul class="nav navbar-nav">
                         &nbsp;
                         <li class="dropdown">
@@ -82,11 +83,15 @@
                         <li>
                             <button class="btn btn-default navbar-btn"><a href="{{url('/purchases')}}">Purchase</a></button>
                         </li>
+                        <li>
+                        <button class="btn btn-default navbar-btn"><a href="{{url('/sells/ledger')}}">Report</a></button>
+                        </li>
                         
                         <li>
 
 
                     </ul>
+                    @endif
 
                     <!-- Right Side Of Navbar -->
                     <ul class="nav navbar-nav navbar-right">

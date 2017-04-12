@@ -92,7 +92,9 @@
         @if (Route::has('login'))
         <div class="top-right links">
             @if (Auth::check())
-            <a href="{{ url('/catagories') }}">Store</a>
+            <a href="{{ url('/catagories') }}"><font color="white" size="16px">
+               Store 
+            </font></a>
             @else
             <a href="{{ url('/login') }}">
             <font color="white" size="16px">

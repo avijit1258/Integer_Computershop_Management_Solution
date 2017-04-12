@@ -35,6 +35,7 @@ Route::get('/users', 'Auth\LoginController@addUser');
 	Route::post('/sells', 'SellController@store');
 	Route::delete('/sells/{id}', 'SellController@store');
 	Route::get('/sells/invoice', 'SellController@invoice');
+	Route::get('/sells/ledger', 'SellController@ledger');
 
 
 	Route::post('/brands', 'BrandController@store');
